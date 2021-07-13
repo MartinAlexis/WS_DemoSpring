@@ -1,0 +1,36 @@
+server:
+  port: 3388
+spring:
+  profiles:    active: "Desarrollo"
+  activemq:
+    in-memory: false
+    pool:
+      enabled: false
+  application:
+    name: ws-otm-events
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 1desarrollo
+    tomcat:
+      default-auto-commit: true
+      initial-size: 1
+      max-active: 5
+      max-idle: 3
+      max-wait: 7000
+      min-idle: 1
+   # type: org.apache.tomcat.jdbc.pool.DataSource
+    url: jdbc:mysql://10.100.3.59:3306/toma_inventarios?useTimezone=true&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=America/Mexico_City
+    username: develop
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+logging:
+  file:
+    max-history: 30
